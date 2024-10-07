@@ -19,11 +19,11 @@ RUN pip install selenium
 ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
 
 # Copy the Selenium test scripts to the container
-COPY sample-one.py /usr/src/app/
-COPY sample-two.py /usr/src/app/
+COPY *.py /usr/src/app/
 
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Run the tests
-CMD ["python", "sample-one.py"]
+# Run the test(s) - defaults to sample-suite.py
+ENTRYPOINT ["python"]
+CMD ["sample-suite.py"]
